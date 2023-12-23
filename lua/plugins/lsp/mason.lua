@@ -4,10 +4,12 @@ local config = function()
   local mason_tool_installer = require("mason-tool-installer")
 
   local lsp_servers = {
-    "lua_ls",
-    "tsserver",
     "jdtls",
+    "jsonls",
+    "lua_ls",
     "pyright",
+    "tsserver",
+    "yamlls",
   }
 
   local lint_and_format_servers = {
@@ -15,11 +17,10 @@ local config = function()
     "eslint_d",
     "flake8",
     --format
-    "stylua",
-    "prettierd",
-    "isort",
     "black",
-
+    "isort",
+    "prettierd",
+    "stylua",
   }
 
   mason.setup({

@@ -11,9 +11,20 @@ local config = function()
 
   local capabilities = cmp_nvim_lsp.default_capabilities()
 
-  local on_attach = function(_, buffnr)
+  local on_attach = function(client, buffnr)
     local keymap = vim.keymap.set
     local telescope = require("telescope.builtin")
+
+    -- HACK: https://github.com/golang/go/issues/54531#issuecomment-1464982242
+    -- TODO: Remove when resolved
+    if client.name == "gopls" and not client.server_capabilities.semanticTokensProvider then
+      local semantic = client.config.capabilities.textDocument.semanticTokens
+      client.server_capabilities.semanticTokensProvider = {
+        full = true,
+        legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },
+        range = true,
+      }
+    end
 
     keymap("n", "gr", function()
       telescope.lsp_references()
@@ -62,17 +73,56 @@ local config = function()
     filetypes = { "go", "gomod", "gowork", "gotmpl" },
     settings = {
       gopls = {
-        completeUnimported = true,
-        usePlaceholders = false,
         analyses = {
-          unusedparams = true,
           fieldalignment = true,
           shadow = true,
+          unusedparams = true,
           unusedvariable = true,
         },
+        completeUnimported = true,
+        directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+        hints = {
+          assignVariableTypes = true,
+          compositeLiteralFields = true,
+          compositeLiteralTypes = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true,
+        },
+        semanticTokens = true,
+        staticcheck = true,
+        usePlaceholders = false,
       },
     },
   })
+
+  lspconfig["jsonls"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
+      },
+    },
+  })
+
+  lspconfig["yamlls"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      yaml = {
+        schemaStore = {
+          enable = false,
+          url = "",
+        },
+        schemas = require("schemastore").yaml.schemas(),
+        validate = { enable = true },
+      },
+    },
+  })
+
   local servers = {
     "tsserver",
     "jdtls",
