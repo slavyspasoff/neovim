@@ -6,8 +6,16 @@ keymap("", "<Space>", "<Nop>", opts)
 -- buffer
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<leader>bd", ":bdelete<CR>", { noremap = true, silent = true, desc = "Delete" })
-keymap("n", "<leader>bx", ":w<CR>:bdelete<CR>", { noremap = true, silent = true, desc = "Write and Delete" })
+keymap("n", "<leader>bd", function()
+  require("mini.bufremove").delete(0, false)
+end, { noremap = true, silent = true, desc = "Delete" })
+keymap("n", "<leader>bw", function()
+  vim.cmd.write()
+  require("mini.bufremove").delete(0, false)
+end, { noremap = true, silent = true, desc = "Write Delete" })
+keymap("n", "<leader>bx", function()
+  require("mini.bufremove").delete(0, true)
+end, { noremap = true, silent = true, desc = "Force Delete" })
 keymap("n", "<leader>qq", ":q<CR>", { noremap = true, silent = true, desc = "Quit" })
 
 -- move text
