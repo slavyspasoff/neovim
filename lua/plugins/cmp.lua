@@ -54,7 +54,7 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "onsails/lspkind.nvim",
-    {"L3MON4D3/LuaSnip", build = "make install_jsregexp"},
+    { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
   },
   lazy = false,
   config = config,

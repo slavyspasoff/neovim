@@ -26,6 +26,7 @@ opt.completeopt = { "menuone", "noselect", "noinsert" }
 opt.list = true
 opt.listchars = {
   trail = "·",
+  tab = "> ",
 }
 
 -- editting
