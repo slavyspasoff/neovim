@@ -3,7 +3,7 @@ local config = function()
 
   local servers = {
     lua = { "stylua" },
-    go = { "gofmt" },
+    go = { "gofmt", "goimports" },
     javascript = { "prettierd" },
     typescript = { "prettierd" },
     javascriptreact = { "prettierd" },

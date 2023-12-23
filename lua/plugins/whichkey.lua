@@ -3,7 +3,7 @@ local config = function()
   wk.register({
     ["<leader>"] = {
       { b = { name = "Buffer" } },
-      { e = { name = "File explorer" } },
+      { e = { name = "Explorer" } },
       { f = { name = "Find" } },
       { l = { name = "Linting and Formatting" } },
       { q = { name = "Quit" } },

@@ -10,7 +10,7 @@ return {
       function()
         require("trouble").toggle()
       end,
-      desc = "Trouble Toggle",
+      desc = "Trouble",
     },
   },
 }

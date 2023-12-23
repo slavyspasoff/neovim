@@ -18,6 +18,7 @@ local config = function()
     "flake8",
     --format
     "black",
+    "goimports",
     "isort",
     "prettierd",
     "stylua",
