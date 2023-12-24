@@ -40,17 +40,19 @@ local config = function()
     end, { noremap = true, silent = true, buffer = buffnr, desc = "Type Definitions" })
     keymap(
       "n",
-      "gv",
+      "gD",
       vim.lsp.buf.declaration,
       { noremap = true, silent = true, buffer = buffnr, desc = "Declarations" }
     )
+    keymap("n", "<leader>cr", vim.lsp.buf.rename, { noremap = true, silent = true, buffer = buffnr, desc = "Rename" })
     keymap(
       "n",
-      "ca",
+      "<leader>ca",
       vim.lsp.buf.code_action,
       { noremap = true, silent = true, buffer = buffnr, desc = "Code Actions" }
     )
     keymap("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true, buffer = buffnr })
+    keymap("n", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, silent = true, buffer = buffnr })
   end
 
   lspconfig["lua_ls"].setup({

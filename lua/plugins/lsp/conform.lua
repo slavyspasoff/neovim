@@ -28,7 +28,7 @@ end
 
 local keys = {
   {
-    "<leader>lp",
+    "<leader>cf",
     function()
       require("conform").format({
         lsp_fallback = true,
@@ -36,7 +36,7 @@ local keys = {
         timeout_ms = 1000,
       })
     end,
-    desc = "Format Current Buffer",
+    desc = "Format",
   },
 }
 
