@@ -8,7 +8,9 @@ local config = function()
       { f = { name = "Find" } },
       { q = { name = "Quit" } },
     },
-    g = { name = "Go to" },
+    g = { name = "Go to", {
+      T = { name = "Type Definition" },
+    } },
     s = { name = "Surround" },
   })
 end

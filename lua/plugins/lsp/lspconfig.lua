@@ -35,7 +35,7 @@ local config = function()
     keymap("n", "gi", function()
       telescope.lsp_implementations({ reuse_win = true })
     end, { noremap = true, silent = true, buffer = buffnr, desc = "Implementations" })
-    keymap("n", "gt", function()
+    keymap("n", "gT", function()
       telescope.lsp_type_definitions({ reuse_win = true })
     end, { noremap = true, silent = true, buffer = buffnr, desc = "Type Definitions" })
     keymap(
@@ -127,7 +127,6 @@ local config = function()
 
   local servers = {
     "tsserver",
-    "jdtls",
     "pyright",
   }
 
