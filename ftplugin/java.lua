@@ -20,7 +20,13 @@ local on_attach = function(client, buffnr)
     "n",
     "<leader>ca",
     vim.lsp.buf.code_action,
-    { noremap = true, silent = true, buffer = buffnr, desc = "Code Actions" }
+    { noremap = true, silent = true, buffer = buffnr, desc = "Actions" }
+  )
+  keymap(
+    "n",
+    "<leader>cd",
+    ":lua vim.diagnostic.open_float(nil, { focus = false, scope = 'line' })<CR>",
+    { noremap = true, silent = true, buffer = buffnr, desc = "Diagnostic" }
   )
   keymap("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true, buffer = buffnr })
   keymap("n", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, silent = true, buffer = buffnr })
