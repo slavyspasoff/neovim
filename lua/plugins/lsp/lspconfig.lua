@@ -142,6 +142,7 @@ local config = function()
   local servers = {
     "tsserver",
     "pyright",
+    "jdtls",
   }
 
   local opts = {
