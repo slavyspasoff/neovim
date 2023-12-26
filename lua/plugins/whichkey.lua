@@ -7,11 +7,11 @@ local config = function()
       { e = { name = "Explorer" } },
       { f = { name = "Find" } },
       { q = { name = "Quit" } },
+      { s = { name = "Surround" } },
     },
     g = { name = "Go to", {
       T = { name = "Type Definition" },
     } },
-    s = { name = "Surround" },
   })
 end
 
