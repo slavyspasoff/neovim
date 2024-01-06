@@ -140,9 +140,10 @@ local config = function()
   })
 
   local servers = {
-    "tsserver",
-    "pyright",
+    "bashls",
     "jdtls",
+    "pyright",
+    "tsserver",
   }
 
   local opts = {

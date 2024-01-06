@@ -4,6 +4,7 @@ local config = function()
   local mason_tool_installer = require("mason-tool-installer")
 
   local lsp_servers = {
+    "bashls",
     "jdtls",
     "jsonls",
     "lua_ls",
@@ -22,6 +23,7 @@ local config = function()
     "isort",
     "prettierd",
     "stylua",
+    "shfmt",
   }
 
   mason.setup({

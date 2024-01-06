@@ -2,6 +2,7 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 -- reset
 keymap("", "<Space>", "<Nop>", opts)
+keymap("", "<F1>", "<Nop>", opts)
 
 -- buffer
 keymap("n", "<S-l>", ":bnext<CR>", opts)

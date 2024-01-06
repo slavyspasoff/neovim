@@ -2,6 +2,8 @@ local config = function()
   local conform = require("conform")
 
   local servers = {
+    sh = { "shfmt" },
+    bash = { "shfmt" },
     lua = { "stylua" },
     go = { "gofmt", "goimports" },
     javascript = { "prettierd" },
