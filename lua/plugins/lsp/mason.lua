@@ -5,6 +5,7 @@ local config = function()
 
   local lsp_servers = {
     "bashls",
+    "clangd",
     "jdtls",
     "jsonls",
     "lua_ls",

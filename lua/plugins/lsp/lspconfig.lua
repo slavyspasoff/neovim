@@ -141,6 +141,7 @@ local config = function()
 
   local servers = {
     "bashls",
+    "clangd",
     "jdtls",
     "pyright",
     "tsserver",
